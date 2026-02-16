@@ -1,37 +1,50 @@
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Diamond, Map, Briefcase, Target, Store, Vote, User } from 'lucide-react'
 
 const navItems = [
-  { label: 'MAPA', icon: Map, active: true },
-  { label: 'MIS ACTIVOS', icon: Briefcase, active: false },
-  { label: 'MISIÓN', icon: Target, active: false },
-  { label: 'MERCADO', icon: Store, active: false },
-  { label: 'DAO', icon: Vote, active: false },
+  { label: 'MAPA', icon: Map, path: '/mapa' },
+  { label: 'MIS ACTIVOS', icon: Briefcase, path: '/' },
+  { label: 'MISIÓN', icon: Target, path: '/' },
+  { label: 'MERCADO', icon: Store, path: '/' },
+  { label: 'DAO', icon: Vote, path: '/' },
 ]
 
 export default function Navbar() {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const isMapActive = location.pathname === '/mapa'
+
   return (
     <nav className="flex items-center justify-between px-6 py-3 bg-maia-dark/80 backdrop-blur-xl border-b border-maia-border sticky top-0 z-50">
       {/* Logo */}
-      <div className="flex items-center gap-2">
+      <div
+        className="flex items-center gap-2 cursor-pointer"
+        onClick={() => navigate('/')}
+      >
         <Diamond className="w-8 h-8 text-maia-purple" fill="currentColor" />
         <span className="font-display text-xl font-bold tracking-wider text-white">MAIA</span>
       </div>
 
       {/* Nav Links */}
       <div className="flex items-center gap-1">
-        {navItems.map((item) => (
-          <button
-            key={item.label}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer ${
-              item.active
-                ? 'bg-maia-purple/20 text-maia-purple-light border border-maia-purple/30'
-                : 'text-maia-text-dim hover:text-white hover:bg-white/5'
-            }`}
-          >
-            <item.icon className="w-4 h-4" />
-            {item.label}
-          </button>
-        ))}
+        {navItems.map((item) => {
+          const isActive = item.path === location.pathname || (item.label === 'MAPA' && isMapActive)
+          return (
+            <button
+              key={item.label}
+              onClick={() => navigate(item.path)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer ${
+                isActive
+                  ? 'bg-maia-purple/20 text-maia-purple-light border border-maia-purple/30'
+                  : 'text-maia-text-dim hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <item.icon className="w-4 h-4" />
+              {item.label}
+            </button>
+          )
+        })}
       </div>
 
       {/* User Section */}

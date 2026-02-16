@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { TrendingUp, Users, BarChart3 } from 'lucide-react'
 
 const stats = [
@@ -7,6 +8,8 @@ const stats = [
 ]
 
 export default function HeroBanner() {
+  const navigate = useNavigate()
+
   return (
     <section className="relative overflow-hidden">
       {/* Background gradient */}
@@ -38,7 +41,10 @@ export default function HeroBanner() {
         </div>
 
         {/* CTA Button */}
-        <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-maia-cyan to-maia-cyan-dark text-white font-bold text-sm tracking-wider uppercase hover:shadow-lg hover:shadow-maia-cyan/25 transition-all cursor-pointer">
+        <button
+          onClick={() => navigate('/mapa')}
+          className="px-8 py-3 rounded-xl bg-gradient-to-r from-maia-cyan to-maia-cyan-dark text-white font-bold text-sm tracking-wider uppercase hover:shadow-lg hover:shadow-maia-cyan/25 transition-all cursor-pointer"
+        >
           EXPLORAR MAPA
         </button>
       </div>
