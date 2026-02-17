@@ -6,7 +6,7 @@ const navItems = [
   { label: 'MIS ACTIVOS', icon: Briefcase, path: '/mis-activos' },
   { label: 'MISIÓN', icon: Target, path: '/mision' },
   { label: 'MERCADO', icon: Store, path: '/mercado' },
-  { label: 'DAO', icon: Vote, path: '/' },
+  { label: 'DAO', icon: Vote, path: '/dao' },
 ]
 
 export default function Navbar() {
