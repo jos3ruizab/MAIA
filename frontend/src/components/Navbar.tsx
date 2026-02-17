@@ -4,7 +4,7 @@ import { Diamond, Map, Briefcase, Target, Store, Vote, User } from 'lucide-react
 const navItems = [
   { label: 'MAPA', icon: Map, path: '/mapa' },
   { label: 'MIS ACTIVOS', icon: Briefcase, path: '/mis-activos' },
-  { label: 'MISIÓN', icon: Target, path: '/' },
+  { label: 'MISIÓN', icon: Target, path: '/mision' },
   { label: 'MERCADO', icon: Store, path: '/' },
   { label: 'DAO', icon: Vote, path: '/' },
 ]
