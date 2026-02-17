@@ -5,7 +5,7 @@ const navItems = [
   { label: 'MAPA', icon: Map, path: '/mapa' },
   { label: 'MIS ACTIVOS', icon: Briefcase, path: '/mis-activos' },
   { label: 'MISIÓN', icon: Target, path: '/mision' },
-  { label: 'MERCADO', icon: Store, path: '/' },
+  { label: 'MERCADO', icon: Store, path: '/mercado' },
   { label: 'DAO', icon: Vote, path: '/' },
 ]
 
