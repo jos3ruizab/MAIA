@@ -3,7 +3,7 @@ import { Diamond, Map, Briefcase, Target, Store, Vote, User } from 'lucide-react
 
 const navItems = [
   { label: 'MAPA', icon: Map, path: '/mapa' },
-  { label: 'MIS ACTIVOS', icon: Briefcase, path: '/' },
+  { label: 'MIS ACTIVOS', icon: Briefcase, path: '/mis-activos' },
   { label: 'MISIÓN', icon: Target, path: '/' },
   { label: 'MERCADO', icon: Store, path: '/' },
   { label: 'DAO', icon: Vote, path: '/' },
@@ -12,8 +12,6 @@ const navItems = [
 export default function Navbar() {
   const location = useLocation()
   const navigate = useNavigate()
-
-  const isMapActive = location.pathname === '/mapa'
 
   return (
     <nav className="flex items-center justify-between px-6 py-3 bg-maia-dark/80 backdrop-blur-xl border-b border-maia-border sticky top-0 z-50">
@@ -29,7 +27,7 @@ export default function Navbar() {
       {/* Nav Links */}
       <div className="flex items-center gap-1">
         {navItems.map((item) => {
-          const isActive = item.path === location.pathname || (item.label === 'MAPA' && isMapActive)
+          const isActive = item.path !== '/' && location.pathname === item.path
           return (
             <button
               key={item.label}
